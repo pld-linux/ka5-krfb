@@ -1,14 +1,15 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.1
+%define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		krfb
 Summary:	krfb
 Name:		ka5-%{kaname}
-Version:	18.12.1
+Version:	19.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	901f033f0a6e815897396a50bab3bc14
+# Source0-md5:	79125e2f28a284c56be0bdbe5fff20c2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -17,19 +18,19 @@ BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	Qt5X11Extras-devel
 BuildRequires:	gettext-devel
-BuildRequires:	kf5-extra-cmake-modules >= 5.53.0
-BuildRequires:	kf5-kcompletion-devel
-BuildRequires:	kf5-kconfig-devel
-BuildRequires:	kf5-kcoreaddons-devel
-BuildRequires:	kf5-kcrash-devel
-BuildRequires:	kf5-kdbusaddons-devel
-BuildRequires:	kf5-kdnssd-devel
-BuildRequires:	kf5-kdoctools-devel
-BuildRequires:	kf5-ki18n-devel
-BuildRequires:	kf5-knotifications-devel
-BuildRequires:	kf5-kwallet-devel
-BuildRequires:	kf5-kwidgetsaddons-devel
-BuildRequires:	kf5-kxmlgui-devel
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcompletion-devel >= %{kframever}
+BuildRequires:	kf5-kconfig-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-kcrash-devel >= %{kframever}
+BuildRequires:	kf5-kdbusaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdnssd-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-knotifications-devel >= %{kframever}
+BuildRequires:	kf5-kwallet-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
 BuildRequires:	libvncserver-devel
 BuildRequires:	libxcb-devel
 BuildRequires:	ninja
@@ -54,6 +55,7 @@ install -d build
 cd build
 %cmake \
 	-G Ninja \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
@@ -62,7 +64,8 @@ cd build
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
 
-%find_lang %{kaname} --all-name --with-qm
+rm -rf $RPM_BUILD_ROOT%{_kdedocdir}/sr
+%find_lang %{kaname} --all-name --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
