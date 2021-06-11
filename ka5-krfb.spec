@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.1
+%define		kdeappsver	21.04.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		krfb
 Summary:	krfb
 Name:		ka5-%{kaname}
-Version:	21.04.1
+Version:	21.04.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	226c24e57bd650c52d2f10b7da51f5bf
+# Source0-md5:	3bae3000c724226ed8ff1f0e9504e7cf
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -90,3 +90,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_events_x11.so
 %{_datadir}/kservicetypes5/krfb-events.desktop
 %{_datadir}/qlogging-categories5/krfb.categories
+%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_events_xdp.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_framebuffer_pw.so
