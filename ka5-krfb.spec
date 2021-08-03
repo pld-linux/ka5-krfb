@@ -47,6 +47,12 @@ Krfb Desktop Sharing is a server application that allows you to share
 your current session with a user on another machine, who can use a VNC
 client to view or even control the desktop.
 
+%description -l pl.UTF-8
+Kfrb Współdzielenie Desktopu jest aplikacją serwerową pozwalającą Ci
+współdzielić bieżącą sesję z użytkownikiem na innej maszynie, który
+może użyć klienta VNC do podejrzenia a nawet kontrolowania Twojego
+desktopu.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
