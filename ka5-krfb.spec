@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.3
+%define		kdeappsver	21.08.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		krfb
 Summary:	krfb
 Name:		ka5-%{kaname}
-Version:	21.04.3
+Version:	21.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	2be7d62fc301f3536400dd8c4559bf50
+# Source0-md5:	972a76b5e0c8e5ebbf8ce89d67706312
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -82,19 +82,21 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/krfb
-%attr(755,root,root) %{_libdir}/libkrfbprivate.so.5
-%attr(755,root,root) %{_libdir}/libkrfbprivate.so.5.0
+%{_libdir}/libkrfbprivate.so.5
 %dir %{_libdir}/qt5/plugins/krfb
-%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_framebuffer_qt.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_framebuffer_xcb.so
 %{_desktopdir}/org.kde.krfb.desktop
 %{_iconsdir}/hicolor/48x48/apps/krfb.png
 %{_iconsdir}/hicolor/scalable/apps/krfb.svgz
 %{_datadir}/krfb
 %{_datadir}/kservicetypes5/krfb-framebuffer.desktop
 %{_datadir}/metainfo/org.kde.krfb.appdata.xml
-%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_events_x11.so
 %{_datadir}/kservicetypes5/krfb-events.desktop
 %{_datadir}/qlogging-categories5/krfb.categories
-%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_events_xdp.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/krfb/krfb_framebuffer_pw.so
+%{_libdir}/libkrfbprivate.so.5.0
+%dir %{_libdir}/qt5/plugins/krfb/events
+%{_libdir}/qt5/plugins/krfb/events/krfb_events_x11.so
+%{_libdir}/qt5/plugins/krfb/events/krfb_events_xdp.so
+%dir %{_libdir}/qt5/plugins/krfb/framebuffer
+%{_libdir}/qt5/plugins/krfb/framebuffer/krfb_framebuffer_pw.so
+%{_libdir}/qt5/plugins/krfb/framebuffer/krfb_framebuffer_qt.so
+%{_libdir}/qt5/plugins/krfb/framebuffer/krfb_framebuffer_xcb.so
