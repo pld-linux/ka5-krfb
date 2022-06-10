@@ -14,10 +14,12 @@ Group:		X11/Applications/Games
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	5c7be59a4536f744b088c1050d38b1e3
 URL:		http://www.kde.org/
+BuildRequires:	Mesa-libgbm-devel
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel
 BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5WaylandClient-devel
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	Qt5X11Extras-devel
 BuildRequires:	gettext-devel
@@ -35,15 +37,19 @@ BuildRequires:	kf5-kwallet-devel >= %{kframever}
 BuildRequires:	kf5-kwayland-devel >= %{kframever}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
-BuildRequires:	kf5-plasma-wayland-protocols >= 1.5.0
+BuildRequires:	kf5-plasma-wayland-protocols-devel >= 1.5.0
+BuildRequires:	libepoxy-devel
 BuildRequires:	libvncserver-devel
 BuildRequires:	libxcb-devel
 BuildRequires:	ninja
+BuildRequires:	pipewire-devel
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXdamage-devel
+BuildRequires:	xorg-lib-libXtst-devel
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
