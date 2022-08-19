@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.3
+%define		kdeappsver	22.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		krfb
 Summary:	krfb
 Name:		ka5-%{kaname}
-Version:	22.04.3
+Version:	22.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	99570ccfc86275d51b30e3f4de6408f0
+# Source0-md5:	7d5be09c2ab4854424c5e413312d9ef4
 URL:		http://www.kde.org/
 BuildRequires:	Mesa-libgbm-devel
 BuildRequires:	Qt5Core-devel
@@ -59,10 +59,10 @@ your current session with a user on another machine, who can use a VNC
 client to view or even control the desktop.
 
 %description -l pl.UTF-8
-Kfrb Współdzielenie Desktopu jest aplikacją serwerową pozwalającą Ci
-współdzielić bieżącą sesję z użytkownikiem na innej maszynie, który
-może użyć klienta VNC do podejrzenia a nawet kontrolowania Twojego
-desktopu.
+Kfrb Współdzielenie Desktopu jest aplikacją serwerową
+pozwalającą Ci współdzielić bieżącą sesję z użytkownikiem na
+innej maszynie, który może użyć klienta VNC do podejrzenia a nawet
+kontrolowania Twojego desktopu.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -107,15 +107,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/krfb.png
 %{_iconsdir}/hicolor/scalable/apps/krfb.svgz
 %{_datadir}/krfb
-%{_datadir}/kservicetypes5/krfb-framebuffer.desktop
 %{_datadir}/metainfo/org.kde.krfb.appdata.xml
-%{_datadir}/kservicetypes5/krfb-events.desktop
 %{_datadir}/qlogging-categories5/krfb.categories
 %{_libdir}/libkrfbprivate.so.5.0
 %dir %{_libdir}/qt5/plugins/krfb/events
-%{_libdir}/qt5/plugins/krfb/events/krfb_events_x11.so
-%{_libdir}/qt5/plugins/krfb/events/krfb_events_xdp.so
+%{_libdir}/qt5/plugins/krfb/events/x11.so
+%{_libdir}/qt5/plugins/krfb/events/xdp.so
 %dir %{_libdir}/qt5/plugins/krfb/framebuffer
-%{_libdir}/qt5/plugins/krfb/framebuffer/krfb_framebuffer_pw.so
-%{_libdir}/qt5/plugins/krfb/framebuffer/krfb_framebuffer_qt.so
-%{_libdir}/qt5/plugins/krfb/framebuffer/krfb_framebuffer_xcb.so
+%{_libdir}/qt5/plugins/krfb/framebuffer/pw.so
+%{_libdir}/qt5/plugins/krfb/framebuffer/qt.so
+%{_libdir}/qt5/plugins/krfb/framebuffer/xcb.so
