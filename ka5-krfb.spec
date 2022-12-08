@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.3
+%define		kdeappsver	22.12.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		krfb
 Summary:	krfb
 Name:		ka5-%{kaname}
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	891b4d8296057fa316b4f8dd208c1167
+# Source0-md5:	2c903b8701a0f1e944ba0dae6f949615
 URL:		http://www.kde.org/
 BuildRequires:	Mesa-libgbm-devel
 BuildRequires:	Qt5Core-devel
