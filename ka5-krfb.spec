@@ -8,7 +8,7 @@
 Summary:	krfb
 Name:		ka5-%{kaname}
 Version:	23.04.2
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications/Games
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -38,6 +38,7 @@ BuildRequires:	kf5-kwayland-devel >= %{kframever}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
 BuildRequires:	kf5-plasma-wayland-protocols-devel >= 1.5.0
+BuildRequires:	kp5-kpipewire-devel
 BuildRequires:	libepoxy-devel
 BuildRequires:	libvncserver-devel
 BuildRequires:	libxcb-devel
@@ -59,10 +60,10 @@ your current session with a user on another machine, who can use a VNC
 client to view or even control the desktop.
 
 %description -l pl.UTF-8
-Kfrb Współdzielenie Desktopu jest aplikacją serwerową
-pozwalającą Ci współdzielić bieżącą sesję z użytkownikiem na
-innej maszynie, który może użyć klienta VNC do podejrzenia a nawet
-kontrolowania Twojego desktopu.
+Kfrb Współdzielenie Desktopu jest aplikacją serwerową pozwalającą Ci
+współdzielić bieżącą sesję z użytkownikiem na innej maszynie, który
+może użyć klienta VNC do podejrzenia a nawet kontrolowania Twojego
+desktopu.
 
 %prep
 %setup -q -n %{kaname}-%{version}
